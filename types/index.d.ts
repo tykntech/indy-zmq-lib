@@ -1,3 +1,3 @@
-import { Wrap } from './indy-rest-wrapper';
+import { Wrap } from './indy-zmq-lib';
 export default Wrap;
 export { Wrap };

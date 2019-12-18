@@ -1,4 +1,4 @@
-import { Wrap, ParseGenesisTx } from './../src/index'
+import { Wrap, ParseGenesisTx } from '../src/index'
 import { mockzmq, zeromq } from './__mocks__/zeromq'
 import { mocksodium, sodium } from './__mocks__/libsodium-wrappers'
 
@@ -13,7 +13,7 @@ const conf =
  * Transaction types test
  */
 
-test.only('should succeed', async () => {
+test('should succeed', async () => {
   const wrap = Wrap(await ParseGenesisTx(conf, mockedsodium), mockedzmq)
   expect(
     await wrap.send({

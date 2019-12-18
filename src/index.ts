@@ -1,4 +1,4 @@
-import { Wrap, ParseGenesisTx } from './indy-rest-wrapper'
+import { Wrap, ParseGenesisTx } from './indy-zmq-lib'
 
 export default Wrap
 
