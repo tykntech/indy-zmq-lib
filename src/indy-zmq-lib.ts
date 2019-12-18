@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events'
+const localzmq = require('zeromq/v5-compat')
 const bs58 = require('bs58')
 
 class Jobs extends EventEmitter {
@@ -36,7 +37,8 @@ export async function ParseGenesisTx(
   return retObject
 }
 
-export function Wrap({ timeout, serverKey, host, port }: ZmqConnectionConfig, zmq: any) {
+export function Wrap({ timeout, serverKey, host, port }: ZmqConnectionConfig, parZmq: any) {
+  const zmq = parZmq || localzmq
   const reqs: any = {}
   const api: any = new Jobs()
 
