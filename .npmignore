@@ -1,0 +1,8 @@
+.editorconfig
+.travis.yml
+rollup.config
+tsconfig.json
+src
+test
+tools
+tslint.json
