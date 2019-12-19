@@ -4,4 +4,4 @@ export const roles = {
   '2': 'STEWARD',
   '101': 'ENDROSER',
   '201': 'NETWORK_MONITOR'
-}
+};

@@ -1,5 +1,5 @@
-import { Wrap, ParseGenesisTx } from './indy-zmq-lib'
+import { Wrap, ParseGenesisTx } from './indy-zmq-lib';
 
-export default { Wrap, ParseGenesisTx }
+export default { Wrap, ParseGenesisTx };
 
-export { Wrap, ParseGenesisTx }
+export { Wrap, ParseGenesisTx };

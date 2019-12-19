@@ -18,14 +18,14 @@ export const types: { [key: string]: string } = {
   '114': 'REVOC_REG_DEF',
   '120': 'AUTH_RULE',
   '122': 'AUTH_RULES'
-}
+};
 
 export function getTypeNumber(description: string): string {
-  const toReturn: string = Object.keys(types).find(prop => types[prop] === description) || ''
+  const toReturn: string = Object.keys(types).find(prop => types[prop] === description) || '';
 
   if (toReturn === '') {
-    throw new Error('Transaction description not found.')
+    throw new Error('Transaction description not found.');
   }
 
-  return toReturn
+  return toReturn;
 }

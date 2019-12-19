@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "keywords": [],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "types/indy-zmq-lib.d.ts",
+  "main": "dist/code/bundle.min.js",
+  "module": "dist/code/bundle.min.js",
+  "typings": "dist/types/indy-zmq-lib.d.ts",
   "files": [
     "dist"
   ],
@@ -20,8 +20,8 @@
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "prebuild": "rimraf dist",
-    "build": "tsc && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "prebuild": "rimraf dist && rimraf build",
+    "build": "tsc && rollup -c && typedoc --out docs --target es6 --theme minimal --mode file src",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
@@ -73,7 +73,7 @@
     ]
   },
   "prettier": {
-    "semi": false,
+    "semi": true,
     "singleQuote": true
   },
   "commitlint": {
@@ -84,6 +84,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
+    "@rollup/plugin-node-resolve": "^6.0.0",
     "@types/jest": "^23.3.2",
     "@types/node": "^10.11.0",
     "colors": "^1.3.2",
@@ -100,9 +101,10 @@
     "prompt": "^1.0.0",
     "replace-in-file": "^3.4.2",
     "rimraf": "^2.6.2",
-    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup": "^1.27.13",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-generate-package-json": "^3.2.0",
     "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.18.0",
     "semantic-release": "^15.9.16",
@@ -123,6 +125,7 @@
     "@types/zeromq": "^4.6.2",
     "bs58": "^4.0.1",
     "core-js": "^3.5.0",
+    "deasync": "^0.1.17",
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "libsodium-wrappers": "^0.7.6",

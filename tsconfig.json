@@ -10,10 +10,19 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declarationDir": "types",
-    "outDir": "dist",
+    "declarationDir": "dist/types",
+    "outDir": "dist/code",
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin",
+        "alwaysShowRuleFailuresAsWarnings": false,
+        "ignoreDefinitionFiles": true,
+        "configFile": "../tslint.json",
+        "suppressWhileTypeErrorsPresent": false
+      }
     ]
   },
   "include": [
