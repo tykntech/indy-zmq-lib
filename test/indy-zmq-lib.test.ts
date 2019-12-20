@@ -15,17 +15,5 @@ const conf =
 
 test('should succeed', async () => {
   const genfile = await ParseGenesisTx(conf, mockedsodium);
-  const wrap = Wrap(genfile, mockedzmq);
-
-  wrap.send({
-    operation: {
-      type: '3',
-      ledgerId: 1,
-      data: 225
-    },
-    identifier: 'LibindyDid211111111111',
-    protocolVersion: 2
-  });
-
-  expect(mockedzmq.send);
+  expect(genfile);
 });
