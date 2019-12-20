@@ -1,26 +1,25 @@
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import generatePackageJson from 'rollup-plugin-generate-package-json'
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import generatePackageJson from '@rollup/plugin-json';
 
 export default {
   input: './dist/code/index.js', // entry point
   output: {
-      file: './dist/code/bundle.min.js', // output bundle file
-      format: 'cjs'
+    file: './dist/code/bundle.min.js', // output bundle file
+    format: 'cjs'
   },
   plugins: [
     resolve({
-      jsnext: true,
-      main: true
+      mainFields: ['main', 'jsnext']
     }),
     commonjs({
       preserveSymlinks: true,
-      ignore: [ 'conditional-runtime-dependency' ],
+      ignore: ['conditional-runtime-dependency'],
       include: /node_modules/
     }),
     generatePackageJson({
       outputFolder: 'dist',
-      baseContents: (pkg) => ({
+      baseContents: pkg => ({
         name: pkg.name,
         main: pkg.main.replace('src', 'dist'),
         dependencies: {},
@@ -28,4 +27,4 @@ export default {
       })
     })
   ]
-}
+};
