@@ -23,7 +23,7 @@ export const types: { [key: string]: string } = {
 export function getTypeNumber(description: string): string {
   const toReturn: string = Object.keys(types).find(prop => types[prop] === description) || '';
 
-  if (toReturn === '') {
+  if (!toReturn || toReturn === '') {
     throw new Error('Transaction description not found.');
   }
 

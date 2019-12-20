@@ -1,12 +1,12 @@
-'use strict'
-const zeromq = require('zeromq/v5-compat')
-const mockzmq: typeof zeromq = jest.genMockFromModule('zeromq/v5-compat')
+'use strict';
+const zeromq = require('zeromq/v5-compat');
+const mockzmq: typeof zeromq = jest.genMockFromModule('zeromq/v5-compat');
 
-mockzmq.curveKeyPair = function() {
+mockzmq.curveKeypair = function() {
   return {
     public: '',
     private: ''
-  }
-}
+  };
+};
 
-export { mockzmq, zeromq }
+export { mockzmq, zeromq };

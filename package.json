@@ -49,7 +49,7 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
-    "automock": true,
+    "automock": false,
     "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
@@ -63,10 +63,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
-        "functions": 95,
-        "lines": 95,
-        "statements": 95
+        "branches": 50,
+        "functions": 60,
+        "lines": 65,
+        "statements": 60
       }
     },
     "collectCoverageFrom": [

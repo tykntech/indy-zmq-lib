@@ -25,7 +25,7 @@ interface ZmqConnectionConfig {
 
 export async function ParseGenesisTx(
   stringConf: string,
-  sodium: any
+  sodium?: any
 ): Promise<ZmqConnectionConfig> {
   if (!sodium) {
     await lazysodium.ready;
@@ -46,7 +46,7 @@ export async function ParseGenesisTx(
   return retObject;
 }
 
-export function Wrap({ timeout, serverKey, host, port }: ZmqConnectionConfig, parZmq: any) {
+export function Wrap({ timeout, serverKey, host, port }: ZmqConnectionConfig, parZmq?: any) {
   const zmq = parZmq || localzmq;
   const reqs: any = {};
   const api: any = new Jobs();
