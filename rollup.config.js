@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import generatePackageJson from '@rollup/plugin-json';
+import rollupGitVersion from 'rollup-plugin-git-version';
 
 export default {
   input: './dist/code/index.js', // entry point
@@ -25,6 +26,7 @@ export default {
         dependencies: {},
         private: true
       })
-    })
+    }),
+    rollupGitVersion()
   ]
 };
