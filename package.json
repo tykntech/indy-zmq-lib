@@ -1,6 +1,6 @@
 {
   "name": "@tykntech/indy-zmq-lib",
-  "version": "0.1.0-dev.2",
+  "version": "0.1.0-dev.3",
   "keywords": [],
   "main": "dist/code/bundle.min.js",
   "module": "dist/code/bundle.min.js",
