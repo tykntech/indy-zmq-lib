@@ -24,8 +24,8 @@ jobs:
           node-version: 10
           registry-url: https://registry.npmjs.org/
           scope: '@tykntech'
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           npm config set scope "@tykntech"
           npm config list
           npm ci
