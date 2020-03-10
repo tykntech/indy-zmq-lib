@@ -24,7 +24,7 @@ interface ZmqConnectionConfig {
 }
 
 export async function ParseGenesisTx(
-  stringConf: string,
+  stringConf: string | { txn: { data: any } },
   sodium?: any
 ): Promise<ZmqConnectionConfig> {
   if (!sodium) {
@@ -36,7 +36,9 @@ export async function ParseGenesisTx(
     throw new Error('Sodium is undefined. Check your library load');
   }
 
-  const conf = JSON.parse(stringConf).txn.data;
+  const conf = typeof stringConf === 'object'
+    ? stringConf.txn.data
+    : JSON.parse(stringConf).txn.data;
   const retObject: ZmqConnectionConfig = {
     timeout: typeof conf.timeout !== 'number' ? conf.timeout : 1000 * 60,
     serverKey: sodium.crypto_sign_ed25519_pk_to_curve25519(bs58.decode(conf.dest)),
